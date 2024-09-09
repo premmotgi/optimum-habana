@@ -401,7 +401,7 @@ def create_prompts(examples):
         )
         source = prompt_template.format_map(example)
         prompts["source"].append(source)
-        prompts["target"].append(example["output"])
+        prompts["target"].append(example["response"])
     return prompts
 
 
@@ -420,7 +420,7 @@ def create_chat_prompts(examples, tokenizer):
         ]
         source = tokenizer.apply_chat_template(prompt, tokenize=False, add_generation_prompt=True)
         prompts["source"].append(source)
-        prompts["target"].append(example["output"])
+        prompts["target"].append(example["response"])
     return prompts
 
 
