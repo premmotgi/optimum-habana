@@ -503,13 +503,13 @@ def setup_tokenizer(args, model, assistant_model):
 
     if model.config.model_type == "llama":
         # unwind broken decapoda-research config
-        model.generation_config.pad_token_id = 0
+        model.generation_config.pad_token_id = 50256
         model.generation_config.bos_token_id = 1
-        model.generation_config.eos_token_id = 2
+        model.generation_config.eos_token_id = 50256
         if assistant_model is not None:
-            assistant_model.generation_config.pad_token_id = 0
+            assistant_model.generation_config.pad_token_id = 50256
             assistant_model.generation_config.bos_token_id = 1
-            assistant_model.generation_config.eos_token_id = 2
+            assistant_model.generation_config.eos_token_id = 50256
         tokenizer.bos_token_id = model.generation_config.bos_token_id
         tokenizer.eos_token_id = model.generation_config.eos_token_id
         tokenizer.pad_token_id = model.generation_config.pad_token_id
