@@ -18,7 +18,7 @@ class LlamaConfig(LlamaConfig):
         pad_token_id=None,
         bos_token_id=1,
         eos_token_id=2,
-        pretraining_tp=1,
+        pretraining_tp=8,
         tie_word_embeddings=False,
         rope_theta=10000.0,
         rope_scaling=None,
